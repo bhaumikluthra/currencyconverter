@@ -34,20 +34,6 @@ const CurrencyConverter = () => {
   };
 
 
-  // Mapping from currency code to country code for flag emoji
-  const currencyToCountry = {
-    USD: 'US', INR: 'IN', EUR: 'EU', GBP: 'GB', JPY: 'JP', AUD: 'AU', CAD: 'CA', CHF: 'CH', CNY: 'CN', HKD: 'HK', NZD: 'NZ', SEK: 'SE', KRW: 'KR', SGD: 'SG', NOK: 'NO', MXN: 'MX', RUB: 'RU', ZAR: 'ZA', TRY: 'TR', BRL: 'BR', TWD: 'TW', DKK: 'DK', PLN: 'PL', THB: 'TH', IDR: 'ID', HUF: 'HU', CZK: 'CZ', ILS: 'IL', CLP: 'CL', PHP: 'PH', AED: 'AE', COP: 'CO', SAR: 'SA', MYR: 'MY', RON: 'RO', // add more as needed
-  };
-
-  // Function to get flag emoji from country code
-  function getFlagEmoji(countryCode) {
-    if (!countryCode) return '';
-    if (countryCode === 'EU') return '🇪🇺';
-    return countryCode
-      .toUpperCase()
-      .replace(/./g, char => String.fromCodePoint(127397 + char.charCodeAt()));
-  }
-
   return (
     <div className="converter-container">
       <div className="input-group">
@@ -58,17 +44,13 @@ const CurrencyConverter = () => {
         />
         <select value={fromCurrency} onChange={(e) => setFromCurrency(e.target.value)}>
           {currencies.map((currency) => (
-            <option key={currency}>
-              {currency} {getFlagEmoji(currencyToCountry[currency])}
-            </option>
+            <option key={currency}>{currency}</option>
           ))}
         </select>
         <span>to</span>
         <select value={toCurrency} onChange={(e) => setToCurrency(e.target.value)}>
           {currencies.map((currency) => (
-            <option key={currency}>
-              {currency} {getFlagEmoji(currencyToCountry[currency])}
-            </option>
+            <option key={currency}>{currency}</option>
           ))}
         </select>
         <button onClick={convert}>Convert</button>
