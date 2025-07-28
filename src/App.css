@@ -1,38 +1,98 @@
+
+body {
+  background: #111;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+
 .App {
   text-align: center;
+  margin-top: 50px;
+  font-family: sans-serif;
+  color: #fff;
 }
 
-.App-logo {
-  height: 40vmin;
+
+.converter-container {
+  margin: 40px auto 0 auto;
+  padding: 32px 24px;
+  max-width: 400px;
+  background: #f7f7fa;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12), 0 1.5px 8px rgba(0,0,0,0.10);
+  border: 2.5px solid #222;
+  color: #222;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.converter-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
   pointer-events: none;
+  box-shadow: 0 0 0 6px rgba(0,0,0,0.07);
+  z-index: -1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.input-group {
   display: flex;
   flex-direction: column;
+  gap: 16px;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+input,
+select {
+  padding: 10px;
+  font-size: 16px;
+  width: 220px;
+  border: 1px solid #111;
+  border-radius: 6px;
+  outline: none;
+  transition: border 0.2s;
+  color: #111;
+  background: #fff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input:focus,
+select:focus {
+  border: 1.5px solid #111;
+  color: #111;
+}
+
+button {
+  padding: 10px 24px;
+  font-size: 16px;
+  width: auto;
+  background-color: #111;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+button {
+  background-color: #111;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #333;
+}
+
+h2 {
+  margin-top: 24px;
+  color: #111;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
